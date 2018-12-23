@@ -130,8 +130,10 @@ package object sizes {
       var make_index = 0
       breakable {
         for (i <- 0 until length) {
-          if (data(i) == max) make_index = i
-          break()
+          if (data(i) == max) {
+            make_index = i
+            break()
+          }
         }
       }
       make_index
@@ -649,7 +651,7 @@ package object sizes {
     "3.65	3.58	3.39	3.18	2.88	2.35	1.83	1.22"
   )
 
-  final val GXLC50210: SizesGroup = SizesGroup("GXLC50210", 100, Dtex, "\\s+", false,
+  final val GXLC50210: SizesGroup = SizesGroup("GXLC50210", 50, Dtex, "\\s+", false,
     "3.31	3.34	3.09	2.99	2.99	2.74	2.52	2.17	1.78	1.39	1.35	1.07	0.85",
     "3.88	4.34	3.98	4.37	4.01	3.8	3.83	2.45	2.45	1.88	1.7	1.42",
     "2.2	2.42	2.56	2.63	2.71	2.52	2.57	2.49	2.42	2.31	2.24	2.24	1.92	1.78	1.64",
@@ -862,7 +864,7 @@ package object sizes {
     "3.24	3.77	3.98	3.7	3.66	3.09	3.02	2.6	2.31	1.88	1.78	1.53	1.42	1.24	0.96"
   )
 
-  final val GXRA50200: SizesGroup = SizesGroup("GXRA50200", 100, Dtex, "\\s+", false,
+  final val GXRA50200: SizesGroup = SizesGroup("GXRA50200", 50, Dtex, "\\s+", false,
     "1.88	2.19	1.85	1.99	2.03	1.92	1.78	1.81	1.56	1.56	1.39	1.56	1.3	1.32",
     "4.62	2.95	3.11	2.72	2.44	2.45	2.44	2.2	2.03	1.67	1.64",
     "2.81	3.38	2.81	2.81	2.49	2.95	2.28	2.79	1.85	1.74	1.24",
