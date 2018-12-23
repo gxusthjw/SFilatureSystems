@@ -351,43 +351,13 @@ package object sizes {
     override def iterator: Iterator[Sizes] = sizesMap.valuesIterator
 
     //The Statistical characteristic for sizes group
-    def sizeCount: Int = {
+    def lengthSum: Int = {
       var make_sum: Int = 0
       for (sizes <- this) make_sum = make_sum + sizes.length
       make_sum
     }
 
-    def sum: Double = {
-      var make_sum: Double = 0.0
-      for (sizes <- this) make_sum = make_sum + sizes.sum
-      make_sum
-    }
-
-    def average: Double = sum / sizeCount
-
-    def vari: Double = {
-      variW + variB
-    }
-
-    def variW: Double = {
-      var make_sum: Double = 0.0
-      for (sizes <- this) make_sum = make_sum + sizes.vari * sizes.length
-      make_sum / sizeCount
-    }
-
-    def variB: Double = {
-      var make_sum: Double = 0.0
-      for (sizes <- this) make_sum = make_sum + pow(sizes.average - average, 2.0) * sizes.length
-      make_sum / sizeCount
-    }
-
-    def std: Double = sqrt(vari)
-
-    def stdW: Double = sqrt(variW)
-
-    def stdB: Double = sqrt(variB)
-
-    def lengthAverage: Double = sizeCount / count
+    def lengthAverage: Double = lengthSum / count
 
     def lengthVari: Double = {
       var make_sum = 0.0
@@ -396,6 +366,37 @@ package object sizes {
     }
 
     def lengthStd: Double = sqrt(lengthVari)
+
+    def sum: Double = {
+      var make_sum: Double = 0.0
+      for (sizes <- this) make_sum = make_sum + sizes.sum
+      make_sum
+    }
+
+    def average: Double = sum / lengthSum
+
+    def vari: Double = {
+      variW + variB
+    }
+
+    def variW: Double = {
+      var make_sum: Double = 0.0
+      for (sizes <- this) make_sum = make_sum + sizes.vari * sizes.length
+      make_sum / lengthSum
+    }
+
+    def variB: Double = {
+      var make_sum: Double = 0.0
+      for (sizes <- this) make_sum = make_sum + pow(sizes.average - average, 2.0) * sizes.length
+      make_sum / lengthSum
+    }
+
+    def std: Double = sqrt(vari)
+
+    def stdW: Double = sqrt(variW)
+
+    def stdB: Double = sqrt(variB)
+
 
     def initialAverage: Double = {
       var make_sum = 0.0
