@@ -16,8 +16,8 @@ package object utils {
   /** Implicitly converts type classes */
   case class ParseOp[T](op: String => T)
 
-  implicit val popDouble = ParseOp[Double](_.toDouble)
-  implicit val popInt = ParseOp[Int](_.toInt)
-  implicit val popLong = ParseOp[Long](_.toLong)
-  implicit val popFloat = ParseOp[Float](_.toFloat)
+  implicit val popDouble: ParseOp[Double] = ParseOp[Double](_.toDouble)
+  implicit val popInt: ParseOp[Int] = ParseOp[Int](_.toInt)
+  implicit val popLong: ParseOp[Long] = ParseOp[Long](_.toLong)
+  implicit val popFloat: ParseOp[Float] = ParseOp[Float](_.toFloat)
 }
