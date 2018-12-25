@@ -7,6 +7,9 @@ import scala.collection.mutable.ArrayBuffer
 import scala.math.{pow, sqrt}
 import scala.util.control.Breaks._
 
+/**
+  * The package object of sizes package
+  */
 package object sizes {
 
   /**
@@ -46,8 +49,10 @@ package object sizes {
     */
   final class Size(val value: Double, val units: LinearDensity) {
 
+    /** Automatically generated code by IDEA */
     def canEqual(other: Any): Boolean = other.isInstanceOf[Size]
 
+    /** Automatically generated code by IDEA */
     override def equals(other: Any): Boolean = other match {
       case that: Size =>
         (that canEqual this) &&
@@ -56,17 +61,20 @@ package object sizes {
       case _ => false
     }
 
+    /** Automatically generated code by IDEA */
     override def hashCode(): Int = {
       val state = Seq(value, units)
       state.map(_.hashCode()).foldLeft(0)((a, b) => 31 * a + b)
     }
 
+    /** Override the toString method */
     override def toString: String = units match {
       case Tex => s"Size($value, $Tex)"
       case Denier => s"Size($value, $Denier)"
       case Dtex => s"Size($value, $Dtex)"
       case _: LinearDensity => s"Size($value, $LinearDensity)"
     }
+
   }
 
   object Size {
